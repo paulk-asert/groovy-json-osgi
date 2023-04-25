@@ -14,21 +14,19 @@ permissions:
 
 jobs:
   build:
-
     strategy:
       fail-fast: false
       matrix:
         os: [ubuntu-latest]
         java: [8, 11]
     runs-on: ${{ matrix.os }}
-
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK
       uses: actions/setup-java@v3
       with:
-        java-version: ${{ matrix.java }}
         distribution: 'temurin'
+        java-version: ${{ matrix.java }}
+    - uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
     - name: Build with Gradle
-      uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
       run: ./gradlew test
