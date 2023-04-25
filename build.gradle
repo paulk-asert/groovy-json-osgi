@@ -1,0 +1,27 @@
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    paxExamVersion = '4.13.5'
+    felixVersion = '7.0.5'
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.13.2'
+//    testImplementation 'org.ow2.asm:asm:9.5'
+//    testImplementation 'org.ow2.asm:asm-util:9.5'
+//    testImplementation 'org.ow2.asm:asm-commons:9.5'
+//    testImplementation 'org.ow2.asm:asm-tree:9.5'
+//    testImplementation 'org.ow2.asm:asm-analysis:9.5'
+    testImplementation 'org.slf4j:slf4j-simple:1.7.9'
+    testImplementation "org.ops4j.pax.exam:pax-exam:$paxExamVersion"
+    testImplementation "org.ops4j.pax.exam:pax-exam-junit4:$paxExamVersion"
+    testImplementation 'org.codehaus.groovy:groovy-json:3.0.17'
+    testImplementation "org.apache.felix:org.apache.felix.framework:$felixVersion"
+    testImplementation "org.ops4j.pax.exam:pax-exam-container-native:$paxExamVersion"
+    testImplementation "org.ops4j.pax.exam:pax-exam-link-assembly:$paxExamVersion"
+    testImplementation "org.ops4j.pax.exam:pax-exam-link-mvn:$paxExamVersion"
+}
